@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chair Quiz</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="mainContainer">
+        	<h2>The Problem</h2>
+	        <p>
+				Take a second to imagine that you are in a room with 100 chairs arranged in a circle. These chairs are numbered sequentially from One to One Hundred. At some point in time, the person in chair #1 will be told to leave the room. The person in chair #2 will be skipped, and the person in chair #3 will be told to leave. Next to go is person in chair #6. In other words, 1 person will be skipped initially, and then 2, 3, 4.. and so on. This pattern of skipping will keep going around the circle until there is only one person remaining- The survivor! Note that each chair is removed when the person leaves the room.
+	        </p>
+	        <h2>The Solution</h2>
+	        <div ng-controller="chairController as cc">
+		        <div class="controls">
+			        <button ng-click="cc.run()">Run</button>
+			        <button ng-click="cc.reset()">Reset</button>
+		        </div>
+
+				<div id="chairContainer">
+		        	<ul id="chairs">
+			        	<li ng-repeat="chair in cc.chairs" chair-widget></li>
+		        	</ul>
+		        	
+		        	<div id="winnerMsg" ng-class="{ winner: cc.winner }">Winner Winner Chicken Dinner!!!</div>
+				</div>
+
+	        </div>
+        </div>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

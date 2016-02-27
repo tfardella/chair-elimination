@@ -1,0 +1,111 @@
+body {
+	font-family: helvetica, sans-serif;
+	font-size: 14px;
+	text-align: center;
+}
+
+button {
+	background-color: #0096d6;
+	color: white;
+	font-size: 14px;
+	padding: 0.5em 1em;
+	border: none;
+	margin: 0.2em;
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: .4em 0 .2em 0;
+}
+
+#mainContainer {
+	margin: 40px auto;
+	width: 80%;
+	text-align: left;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	width: 650px;
+	text-align: center;
+}
+
+li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+#chairContainer {
+	text-align: center;
+	position: relative;
+}
+
+.chair {
+	width: 60px;
+	height: 80px;
+	background-size: 60px auto;
+}
+
+.chair img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+.chair.selected {
+	background-color: #b8ef8b;
+}
+
+.chair.tipped {
+	background-color: #ff0000;
+	opacity: 0.0;
+	transition: all 3s ease;
+}
+
+.chair.tipped img {
+	animation-duration: .5s;
+	animation-name: tipping;
+	transform: rotate( 120deg );
+}
+
+@keyframes tipping {
+  0% {
+	transform: rotate( 0deg );
+  }
+
+  100% {
+	transform: rotate( 120deg );
+  }
+}
+
+@keyframes fadeOut {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+.controls {
+	margin: 5px 0;
+}
+
+#winnerMsg {
+	display: none;
+	color: #FF69B4;
+	width: 100%;
+	text-align: center;
+	font-size: 200%;
+	font-weight: bold;
+	position: absolute;
+	top: 10%;
+	left: 0%;
+}
+
+#winnerMsg.winner {
+	display: block;
+	animation:pulse 1s 10; 
+}
+
+@keyframes pulse {
+	0%      { transform:scale( 1 ); }
+	25%     { transform:scale( 1.5 ); }
+	75%     { transform:scale( 1 ); }
+}
